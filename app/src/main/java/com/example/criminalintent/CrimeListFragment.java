@@ -84,8 +84,8 @@ public class CrimeListFragment extends Fragment {
         public void onClick(View view) {
 //            Toast.makeText(getActivity(),mCrime.getTitle() + "clicked!", Toast.LENGTH_SHORT)
 //                    .show();
-//            Intent intent = new Intent(getActivity(),CrimeActivity.class);
-            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
+            Intent intent = new Intent(getActivity(),CrimeActivity.class);
+//            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
             startActivity(intent);
         }
     }
@@ -98,16 +98,16 @@ public class CrimeListFragment extends Fragment {
             mCrimes = crimes;
         }
 
-        @NonNull
+
         @Override
-        public CrimeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public CrimeHolder onCreateViewHolder( ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             return new CrimeHolder(layoutInflater, parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull CrimeHolder holder, int position) {
-            Crime crime = mCrime.get(position);
+        public void onBindViewHolder(CrimeHolder holder, int position) {
+            Crime crime = mCrimes.get(position);
             holder.bind(crime);
         }
 
